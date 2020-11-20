@@ -32,7 +32,7 @@ def entry():
 # Welcome route
 @app.route('/')
 def index():
-    return "<h1>Welcome to Bad News!!</h1>"
+    return "<h1>Welcome to Bad News!</h1>"
 
 
 if __name__ == '__main__':
