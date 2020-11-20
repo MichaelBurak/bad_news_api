@@ -21,7 +21,7 @@ app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
-@app.route("/", methods=["GET"])
+@app.route("/article", methods=["GET"])
 def entry():
     data = collection.find_one(
         sort=[('_id', pymongo.DESCENDING)]
@@ -29,5 +29,12 @@ def entry():
     return jsonify(str(data))
 
 
-# if __name__ == '__main__':
-#     app.run()
+# Welcome route
+@app.route('/')
+def index():
+    return "<h1>Welcome to Bad News!!</h1>"
+
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
