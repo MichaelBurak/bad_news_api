@@ -20,6 +20,8 @@ app = Flask(__name__)
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+# Route to get sad article
+
 
 @app.route("/article", methods=["GET"])
 def entry():
