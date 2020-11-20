@@ -21,7 +21,7 @@ app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
-@app.route("/article", methods=["GET"])
+@app.route("/", methods=["GET"])
 def entry():
     data = collection.find_one(
         sort=[('_id', pymongo.DESCENDING)]
@@ -29,5 +29,5 @@ def entry():
     return jsonify(str(data))
 
 
-# if __name__ == '__main__':
-app.run()
+if __name__ == '__main__':
+    app.run()
